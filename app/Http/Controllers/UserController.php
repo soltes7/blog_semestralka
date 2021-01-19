@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::paginate(25);
+        $users = User::paginate(3);
 
         $grid = new Datagrid($users, $request->get('f',[]));
 
