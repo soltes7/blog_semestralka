@@ -24,6 +24,10 @@
         <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Password">
     </div>
     <div class="form-group">
+        <label for="profilepic">Password again</label>
+        <input type="url" class="form-control" id="profilepic" name="profilepic" placeholder="URL">
+    </div>
+    <div class="form-group">
         <input type="submit" class="btn btn-primary form-control">
     </div>
 </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Aginev\Datagrid\Datagrid;
+use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -125,6 +126,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        Article::where('authorid', '=', $user->id)->delete();
         $user->delete();
         return redirect()->route('user.index');
     }

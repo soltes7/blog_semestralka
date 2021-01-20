@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function gallery()
+    {
+        return view('gallery.index');
+    }
+
+    public function profile()
+    {
+        return view('profile');
+    }
 }

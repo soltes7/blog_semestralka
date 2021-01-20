@@ -3,12 +3,14 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Article;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
 
 class UserPolicy
 {
     use HandlesAuthorization;
+
 
     /**
      * Determine whether the user can view any models.
@@ -31,7 +33,6 @@ class UserPolicy
     public function view(User $user, User $model)
     {
         return true;
-        //return Auth::user()->name == 'admin';
     }
 
     /**
@@ -42,7 +43,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return Auth::user()->name == 'admin';
     }
 
     /**
@@ -54,7 +55,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        return Auth::user()->name == 'admin' || Auth::user()->id == $model->id;
     }
 
     /**
@@ -66,19 +67,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
-     * @return mixed
-     */
-    public function restore(User $user, User $model)
-    {
-        //
+        return Auth::user()->name == 'admin' || Auth::user()->id == $model->id;
     }
 
     /**
@@ -88,8 +77,9 @@ class UserPolicy
      * @param  \App\Models\User  $model
      * @return mixed
      */
-    public function forceDelete(User $user, User $model)
+
+    public function editArticle(Article $model, User $user)
     {
-        //
+        return true;
     }
 }
