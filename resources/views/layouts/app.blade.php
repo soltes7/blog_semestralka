@@ -41,7 +41,9 @@
                             <a class="nav-link navbarPrvky" href="{{ route('gallery') }}">{{ __('Gallery') }}</a>
                         </li>
                         @can('viewAny', \App\Models\User::class)
+                        <li class="nav-item">
                             <a class="nav-link navbarPrvky" href="{{ route('user.index') }}">{{ __('Users') }}</a>
+                        </li>
                         @endcan
                     </ul>
 

@@ -83,12 +83,12 @@ class RegisterController extends Controller
                 ->where('email', $email)
                 ->count();
             if ($data > 0) {
-                echo 'bad';
+                echo 'wrong';
             } else {
                 echo 'ok';
             }
         } else {
-            return 'bad';
+            return 'wrong';
         }
     }
 
@@ -100,12 +100,12 @@ class RegisterController extends Controller
                 ->where('name', $username)
                 ->count();
             if ($data > 0) {
-                echo 'bad';
+                echo 'wrong';
             } else {
                 echo 'ok';
             }
         } else {
-            return 'bad';
+            return 'wrong';
         }
     }
 }
